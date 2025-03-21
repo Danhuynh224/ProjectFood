@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
+    <!--    Vương Lập Quế - 22110402-->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="413dp"
@@ -43,7 +43,8 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="36dp"
         android:drawableStart="@drawable/email"
-        android:hint="  Email"
+        android:drawablePadding="12dp"
+        android:hint="Email"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"

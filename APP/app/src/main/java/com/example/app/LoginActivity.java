@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,9 +23,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+// Vương Lập Quế  2210402
 public class LoginActivity extends AppCompatActivity {
     private EditText usernameInput, passwordInput;
     SharedPreferences sharedPreferences;
+	private TextView tvForgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         usernameInput = findViewById(R.id.usernameInput);
         passwordInput = findViewById(R.id.passwordInput);
         ImageButton loginButton = findViewById(R.id.arrow);
+        tvForgotPassword = findViewById(R.id.forgetText);
 
         String userName = getIntent().getStringExtra("NAME");
         String userPass = getIntent().getStringExtra("PASSWORD");
@@ -53,6 +57,15 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     loginUser(username, password);
                 }
+            }
+        });
+
+
+        tvForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, ForgetPassActivity.class);
+                startActivity(intent);
             }
         });
     }
