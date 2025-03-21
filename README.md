@@ -1,11 +1,15 @@
-Giao diện trang bắt đầu:
-![alt text](image.png)
-Nhấn vào bắt đầu:
-+ Nếu chưa thực hiện đăng nhập sẽ dẫn vào trang đăng nhập:
-![alt text](image-1.png)
-+ Nếu đã đăng nhập rồi, vào thẳng trang main
-![alt text](image-2.png)
-Giao diện trang quên mật khẩu:
-![alt text](image-3.png)
-Giao diện trang ký:
-![alt text](image-4.png)
+Giao diện trang bắt đầu:<br>
+<img src="image.png"><br><br>
+
+Nhấn vào bắt đầu:<br>
++ Nếu chưa thực hiện đăng nhập sẽ dẫn vào trang đăng nhập:<br>
+<img src="image-1.png"><br><br>
+
++ Nếu đã đăng nhập rồi, vào thẳng trang main<br>
+<img src="image-2.png"><br><br>
+
+Giao diện trang quên mật khẩu:<br>
+<img src="image-3.png"><br><br>
+
+Giao diện trang ký:<br>
+<img src="image-4.png"><br><br>
