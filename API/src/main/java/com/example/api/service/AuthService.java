@@ -25,7 +25,7 @@ public class AuthService {
     @Autowired
     private JavaMailSender emailSender;
     public User registerUser(User user) {
-        User existingUser = userRepository.findByEmail(user.getEmail());
+        User existingUser = userRepository.findByName(user.getName());
         if (existingUser != null) {
             return null;
         }
@@ -36,7 +36,7 @@ public class AuthService {
     }
 
     public User login(User user) {
-        User existingUser = userRepository.findByEmail(user.getEmail());
+        User existingUser = userRepository.findByName(user.getName());
         if (existingUser == null || !BCrypt.checkpw(user.getPassword(), existingUser.getPassword()) || !existingUser.isActive()){
             return null;
         }
