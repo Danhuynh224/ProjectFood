@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = passwordInput.getText().toString().trim();
 
                 if (username.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Vui lòng nhập email và mật khẩu!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Vui lòng nhập username và mật khẩu!", Toast.LENGTH_SHORT).show();
                 } else {
                     loginUser(username, password);
                 }
@@ -105,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(LoginActivity.this, "Email hoặc mật khẩu không đúng!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Username hoặc mật khẩu không đúng!", Toast.LENGTH_SHORT).show();
                 }
             }
 

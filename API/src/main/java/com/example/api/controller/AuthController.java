@@ -4,6 +4,7 @@ package com.example.api.controller;
 
 import com.example.api.entity.User;
 import com.example.api.request.ForgetRequest;
+import com.example.api.request.LoginRequest;
 import com.example.api.request.OTPRequest;
 import com.example.api.request.ResetPassRequest;
 import com.example.api.service.AuthService;
@@ -40,7 +41,7 @@ public class AuthController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
     @PostMapping("/login")
-    public ResponseEntity<?> login(@Valid @RequestBody User user) {
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequest user) {
         System.out.println(user.toString());
         User loginUser = authService.login(user);
 

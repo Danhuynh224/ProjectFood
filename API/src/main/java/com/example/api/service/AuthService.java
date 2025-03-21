@@ -6,6 +6,7 @@ import com.example.api.entity.User;
 import com.example.api.repository.OTPRepository;
 import com.example.api.repository.UserRepository;
 import com.example.api.request.ForgetRequest;
+import com.example.api.request.LoginRequest;
 import com.example.api.request.OTPRequest;
 import com.example.api.request.ResetPassRequest;
 import org.mindrot.jbcrypt.BCrypt;
@@ -35,7 +36,7 @@ public class AuthService {
         return user;
     }
 
-    public User login(User user) {
+    public User login(LoginRequest user) {
         User existingUser = userRepository.findByName(user.getName());
         if (existingUser == null || !BCrypt.checkpw(user.getPassword(), existingUser.getPassword()) || !existingUser.isActive()){
             return null;
