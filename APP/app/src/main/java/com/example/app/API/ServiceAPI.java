@@ -1,4 +1,4 @@
-//Huỳnh Việt Đan - 22110306
+//Nguyễn Phan Minh Trí - 22110443
 package com.example.app.API;
 
 import com.example.app.Model.Category;
@@ -9,6 +9,6 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface ServiceAPI {
-    @GET("/all-categories")
+    @GET("/api/product/all-categories")
     Call<List<Category>> getCategoriesAll();
 }
