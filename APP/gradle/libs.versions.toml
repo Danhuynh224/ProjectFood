@@ -27,6 +27,7 @@ glide = {group="com.github.bumptech.glide", name ="glide", version.ref="glide"}
 gson ={group="com.google.code.gson", name ="gson", version.ref="gson"}
 retrofit = {group = "com.squareup.retrofit2", name= "retrofit", version.ref="retrofit"}
 circleimageview = { group = "de.hdodenhof", name = "circleimageview", version.ref = "circleimageview" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 

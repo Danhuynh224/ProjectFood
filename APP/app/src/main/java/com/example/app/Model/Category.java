@@ -1,4 +1,4 @@
-//Huỳnh Việt Đan - 22110306
+//Nguyễn Phan Minh Trí - 22110443
 package com.example.app.Model;
 
 import com.google.gson.annotations.SerializedName;
@@ -6,14 +6,12 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Category implements Serializable {
-    @SerializedName("id")
+    @SerializedName("categoryId")
     private int id;
     @SerializedName("name")
     private String name;
-    @SerializedName("images")
+    @SerializedName("categoryName")
     private String images;
-    @SerializedName("description")
-    private String description;
 
     public int getId() {
         return id;
@@ -39,11 +37,4 @@ public class Category implements Serializable {
         this.images = images;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
