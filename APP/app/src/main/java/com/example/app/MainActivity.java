@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         AnhXa();
         GetCategory();
-
+        GetProduct();
         // Ho Nhut Tan - 22110412
         sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
 
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         rcProduct = findViewById(R.id.recyclerLastProducts);//Nguyễn Hữu Vinh 22110458
     }
 
-    private void GetCategory() {//Nguyễn Hữu Vinh 22110458
+    private void GetCategory() {
         apiService = RetrofitClient.getClient().create(ServiceAPI.class);
         apiService.getCategoriesAll().enqueue(new Callback<List<Category>>() {
             @Override
