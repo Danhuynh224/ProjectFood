@@ -56,13 +56,27 @@
                         android:textColor="@android:color/darker_gray"
                         android:textSize="14sp"/>
                 </LinearLayout>
-
                 <!-- Avatar -->
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_student"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/pro_trung" />
+                <ImageButton
+                    android:id="@+id/btn_logout"
+                    android:layout_width="33dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/logout"
+                    android:scaleType="fitCenter"
+                    android:padding="4dp"
+                    android:contentDescription="button logout"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:layout_marginLeft="8dp">
+
+
+                </ImageButton>
+
             </LinearLayout>
 
             <!-- Ô tìm kiếm -->
