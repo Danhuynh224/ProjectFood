@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         rcCate = findViewById(R.id.recyclerCategories);
     }
 
-    private void GetCategory() {
+    private void GetCategory() { 
         apiService = RetrofitClient.getClient().create(ServiceAPI.class);
         apiService.getCategoriesAll().enqueue(new Callback<List<Category>>() {
             @Override
