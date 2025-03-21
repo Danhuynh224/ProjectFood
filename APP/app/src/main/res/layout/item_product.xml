@@ -8,7 +8,7 @@
 
     <!-- Nguyễn Hữu Vinh 22110458 -->
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/linearLayout2"
         android:layout_width="129dp"
         android:layout_height="121dp"
@@ -30,9 +30,11 @@
         android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/productImage"
-        app:layout_constraintStart_toStartOf="@+id/productImage"
-        app:layout_constraintTop_toBottomOf="@+id/productImage" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productImage"
+        android:elevation="5dp"
+        android:layout_marginBottom="15dp"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/productImage"
@@ -42,5 +44,6 @@
         android:src="@drawable/pro_trung"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="4dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
