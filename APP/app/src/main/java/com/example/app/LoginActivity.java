@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText usernameInput, passwordInput;
+    private TextView tvForgotPassword;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         usernameInput = findViewById(R.id.usernameInput);
         passwordInput = findViewById(R.id.passwordInput);
         ImageButton loginButton = findViewById(R.id.arrow);
+        tvForgotPassword = findViewById(R.id.forgetText);
 
         // Xử lý sự kiện khi bấm nút đăng nhập
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +50,15 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     loginUser(username, password);
                 }
+            }
+        });
+
+
+        tvForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, ForgetPassActivity.class);
+                startActivity(intent);
             }
         });
     }
