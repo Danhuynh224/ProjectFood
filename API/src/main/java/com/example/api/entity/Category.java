@@ -1,4 +1,5 @@
 
+//Huỳnh Tuấn Kiệt - 22110358
 package com.example.api.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,11 +17,12 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "Categories")
-public class Category implements Serializable{//HuynhTuanKiet-22110358
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryId;
     private String categoryName;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String image;
 
     @JsonIgnore

@@ -12,11 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.example.app.Model.Category;
 import com.example.app.R;
 
 import java.util.List;
 
+//Nguyễn Phan Minh Trí - 22110443
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyViewHolder> {
 
     Context context;

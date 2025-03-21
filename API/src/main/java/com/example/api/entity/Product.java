@@ -1,4 +1,5 @@
 
+//Huỳnh Tuấn Kiệt - 22110358
 package com.example.api.entity;
 
 import jakarta.persistence.*;
@@ -18,13 +19,14 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "Products")
-public class Product implements Serializable {//HuynhTuanKiet-22110358
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
     private String productName;
     private int quantity;
     private double price;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String images;
     private String description;
     private int soldQuantity;

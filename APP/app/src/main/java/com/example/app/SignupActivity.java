@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.app.API.AuthAPI;
 import com.example.app.API.RetrofitClient;
 import com.example.app.Model.ApiResponse;
+import com.example.app.Model.ErrorResponse;
 import com.example.app.Model.User;
 
 import retrofit2.Call;
@@ -27,6 +29,7 @@ public class SignupActivity extends AppCompatActivity {
     ImageButton signup;
     RadioGroup genderGroup;
     RadioButton selectedGenderButton;
+    TextView tv_login;
     AuthAPI authAPI;
 
     @Override
@@ -40,6 +43,15 @@ public class SignupActivity extends AppCompatActivity {
         signup = findViewById(R.id.btn_signup);
         confpass = findViewById(R.id.tv_passConf);
         genderGroup = findViewById(R.id.genderGroup);
+        tv_login = findViewById(R.id.tv_login);
+
+        tv_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         signup.setOnClickListener(new View.OnClickListener() {
@@ -86,13 +98,15 @@ public class SignupActivity extends AppCompatActivity {
                             // Chuyển sang OTPActivity và truyền dữ liệu
                             Intent intent = new Intent(SignupActivity.this, OtpActivity.class);
                             intent.putExtra("USER_EMAIL", user.getEmail());
+                            intent.putExtra("NAME", user.getName());
+                            intent.putExtra("PASSWORD", user.getPassword());
                             startActivity(intent);
                         } else {
                             try {
                                 // Đọc lỗi từ errorBody()
-                                String errorBody = response.errorBody().string();
+                                String errorBody = response.errorBody().toString();
                                 Log.e("API_ERROR", "Response error: " + errorBody);
-                                Toast.makeText(SignupActivity.this, "Invalid email and username", Toast.LENGTH_LONG).show();
+                                Toast.makeText(SignupActivity.this, errorBody, Toast.LENGTH_LONG).show();
                             } catch (Exception e) {
                                 Log.e("API_ERROR", "Error reading error body", e);
                             }
