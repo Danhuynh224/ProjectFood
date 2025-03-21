@@ -23,22 +23,20 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+// Ho Nhut Tan - 22110412
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView rcCate;
     CategoryAdapter categoryAdapter;
     ServiceAPI apiService;
     List<Category> categoryList;
-
-
     SharedPreferences sharedPreferences;
     TextView tvName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -48,13 +46,14 @@ public class MainActivity extends AppCompatActivity {
         AnhXa();
         GetCategory();
 
-        tvName = findViewById(R.id.tvName);
+        // Ho Nhut Tan - 22110412
         sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
 
         tvName.setText("Hi" + sharedPreferences.getString("name", ""));
     }
 
     private void AnhXa() {
+        tvName = findViewById(R.id.tvName);
         rcCate = findViewById(R.id.recyclerCategories);
     }
 
