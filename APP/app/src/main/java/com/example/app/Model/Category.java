@@ -7,17 +7,17 @@ import java.io.Serializable;
 //Nguyễn Phan Minh Trí - 22110443
 public class Category implements Serializable {
     @SerializedName("categoryId")
-    private int id;
+    private Long id;
     @SerializedName("categoryName")
     private String name;
     @SerializedName("image")
     private String images;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

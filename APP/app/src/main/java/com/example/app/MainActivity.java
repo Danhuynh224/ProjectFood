@@ -41,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rcProduct;
     ProductAdapter productAdapter;
     SharedPreferences sharedPreferences;
+    TextView tvCategoryInfo;
     TextView tvName;
+    int quantity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         AnhXa();
         GetCategory(); // Nguyễn Phan Minh Trí - 22110443
-        GetProduct();
+        GetProduct();  // Nguyễn Hữu VInh - 22110458
         // Ho Nhut Tan - 22110412
         sharedPreferences = getSharedPreferences("LoginDetails", MODE_PRIVATE);
 
@@ -81,39 +83,44 @@ public class MainActivity extends AppCompatActivity {
     private void AnhXa() {
         tvName = findViewById(R.id.tvName);
         rcCate = findViewById(R.id.recyclerCategories);
+        tvCategoryInfo = findViewById(R.id.txt_NameCate);
         rcProduct = findViewById(R.id.recyclerLastProducts);//Nguyễn Hữu Vinh 22110458
     }
 
-    private void GetCategory() { // Nguyễn Phan Minh Trí - 22110443
-
+    private void GetCategory() {
         apiService = RetrofitClient.getClient().create(ServiceAPI.class);
         apiService.getCategoriesAll().enqueue(new Callback<List<Category>>() {
             @Override
             public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
-                if(response.isSuccessful()) {
+                if (response.isSuccessful()) {
                     categoryList = response.body();
+                    categoryAdapter = new CategoryAdapter(MainActivity.this, categoryList, new CategoryAdapter.OnCategoryClickListener() {
+                        @Override
+                        public void onCategoryClick(Category category) {
+                            // Khi bấm vào danh mục, gọi API lấy sản phẩm theo danh mục
+                            GetProductByCategory(category.getId());
+                            String categoryInfo = category.getName() + ": " + productList.size();
+                            tvCategoryInfo.setText(categoryInfo);
+                        }
+                    });
 
-                    categoryAdapter = new CategoryAdapter(MainActivity.this, categoryList);
                     rcCate.setHasFixedSize(true);
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(),
-                            LinearLayoutManager.HORIZONTAL, false);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
                     rcCate.setLayoutManager(layoutManager);
                     rcCate.setAdapter(categoryAdapter);
                     categoryAdapter.notifyDataSetChanged();
-
-
                 } else {
-                    int statusCode = response.code();
+                    Log.d("API ERROR", "Không thể lấy danh mục");
                 }
             }
 
             @Override
             public void onFailure(Call<List<Category>> call, Throwable t) {
-                Log.d("logg", t.getMessage());
+                Log.d("API ERROR", "Lỗi khi gọi API danh mục: " + t.getMessage());
             }
         });
     }
-    private void GetProduct() {
+    private void GetProduct() {//Hàm lấy sản phẩm mới nhất Nguyễn Hữu Vinh 22110458
         apiService = RetrofitClient.getClient().create(ServiceAPI.class);
         apiService.getLastProducts().enqueue(new Callback<List<Product>>(){
             @Override
@@ -135,6 +142,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
                 Log.d("logg product", t.getMessage());
+            }
+        });
+    }
+    // Hàm lấy sản phẩm theo danh mục Nguyễn Hữu Vinh 22110458
+    private void GetProductByCategory(Long categoryId) {
+        apiService = RetrofitClient.getClient().create(ServiceAPI.class);
+        apiService.getProductByCategory(categoryId).enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    productList.clear(); // Xóa danh sách cũ
+                    quantity = productList.size();
+                    productList.addAll(response.body()); // Thêm sản phẩm mới
+                    productAdapter.notifyDataSetChanged();
+                } else {
+                    Toast.makeText(MainActivity.this, "Không có sản phẩm nào trong danh mục này", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                Log.d("API ERROR", "Lỗi khi gọi API lấy sản phẩm theo danh mục: " + t.getMessage());
             }
         });
     }
