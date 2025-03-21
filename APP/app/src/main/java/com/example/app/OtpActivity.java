@@ -22,7 +22,7 @@ import com.example.app.Model.OTPRequest;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+//22110408 _ Nguyễn Hồng Sơn
 public class OtpActivity extends AppCompatActivity {
     TextView email;
     ImageButton active;
