@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signup"
+    tools:context=".SignupActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--    22110408 _ Nguyễn Hồng Sơn-->
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/top_background2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_marginTop="-65dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/imageview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="Create Account"
+            android:textStyle="bold"
+            android:textColor="#6881A0"
+            android:layout_marginBottom="20sp"
+            android:textSize="40sp" />
+        <EditText
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:textSize="23sp"
+            android:inputType="text"
+            android:drawableLeft="@drawable/name"
+            android:drawablePadding="15dp"
+            android:paddingBottom="18dp"
+            android:layout_marginBottom="5dp">
+
+        </EditText>
+        <EditText
+            android:id="@+id/tv_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:textSize="23sp"
+            android:inputType="text"
+            android:drawableLeft="@drawable/email"
+            android:drawablePadding="15dp"
+            android:paddingBottom="18dp"
+            android:layout_marginBottom="5dp">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/tv_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/password"
+            android:drawablePadding="15dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingBottom="18dp"
+            android:textSize="23sp"></EditText>
+        <EditText
+            android:id="@+id/tv_passConf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/password"
+            android:drawablePadding="15dp"
+            android:hint="Conform Password"
+            android:inputType="textPassword"
+            android:paddingBottom="18dp"
+            android:textSize="23sp"></EditText>
+        <RadioGroup
+            android:id="@+id/genderGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/radioFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female" />
+        </RadioGroup>
+
+
+        <ImageButton
+            android:id="@+id/btn_signup"
+            android:paddingTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_arrow2"
+            android:background="#FEF7FF"
+            android:layout_gravity="end">
+        </ImageButton>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:text="Forget your password? Recovery it"
+            android:textColor="#6881A0">
+
+        </TextView>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
