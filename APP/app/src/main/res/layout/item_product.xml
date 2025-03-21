@@ -9,8 +9,8 @@
     <!-- Nguyễn Hữu Vinh 22110458 -->
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="143dp"
-        android:layout_height="120dp"
+        android:layout_width="129dp"
+        android:layout_height="121dp"
         android:layout_margin="5dp"
         android:background="@drawable/white_bg"
         android:orientation="vertical"

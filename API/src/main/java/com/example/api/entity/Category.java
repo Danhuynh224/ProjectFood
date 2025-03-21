@@ -19,6 +19,8 @@ public class Category implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryId;
     private String categoryName;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String image;
 
     @JsonIgnore
