@@ -15,7 +15,7 @@ public class PrefUser {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("username", user);
         editor.putString("password", password);
-        editor.apply();
+        editor.commit();
     }
 
     public boolean isUserLogedOut() {
