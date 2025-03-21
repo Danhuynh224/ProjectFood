@@ -23,10 +23,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
     Context context;
     List<Category> array;
+    private OnCategoryClickListener listener;
+    public interface OnCategoryClickListener {
+        void onCategoryClick(Category category);
+    }
 
-    public CategoryAdapter(Context context, List<Category> array) {
+    public CategoryAdapter(Context context, List<Category> array,OnCategoryClickListener listener) {
         this.context = context;
         this.array = array;
+        this.listener = listener;
     }
 
     @NonNull
@@ -48,7 +53,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
             tenSp = itemView.findViewById(R.id.tvNameCategory);
 
             itemView.setOnClickListener(v -> {
-                Toast.makeText(context, "Bạn đã chọn category " + tenSp.getText().toString(), Toast.LENGTH_SHORT).show();
+                if (listener != null) {
+                    listener.onCategoryClick(array.get(getAdapterPosition())); // Gửi category về MainActivity
+                }
             });
         }
     }
