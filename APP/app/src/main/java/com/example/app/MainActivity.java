@@ -13,7 +13,6 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
-    String txtName;
     TextView tvName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
