@@ -22,15 +22,16 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-    private EditText emailInput, passwordInput;
+    private EditText usernameInput, passwordInput;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         // Ánh xạ các thành phần giao diện
-        emailInput = findViewById(R.id.emailInput);
+        usernameInput = findViewById(R.id.usernameInput);
         passwordInput = findViewById(R.id.passwordInput);
         ImageButton loginButton = findViewById(R.id.arrow);
 
@@ -38,25 +39,24 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = emailInput.getText().toString().trim();
+                String username = usernameInput.getText().toString().trim();
                 String password = passwordInput.getText().toString().trim();
 
-                if (email.isEmpty() || password.isEmpty()) {
+                if (username.isEmpty() || password.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Vui lòng nhập email và mật khẩu!", Toast.LENGTH_SHORT).show();
                 } else {
-                    loginUser(email, password);
+                    loginUser(username, password);
                 }
             }
         });
     }
 
-    private void loginUser(String email, String password) {
+    private void loginUser(String username, String password) {
         // Tạo Retrofit instance
         AuthAPI authAPI = RetrofitClient.getClient().create(AuthAPI.class);
 
         // Tạo user request
-        boolean active =true;
-        User user = new User(email, password);
+        User user = new User(username, password);
 
         // Gửi request đến API
         Call<ApiResponse> call = authAPI.login(user);
@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("email", email);
+                    editor.putString("username", username);
                     editor.putString("password", password);
                     editor.commit();
                     Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(LoginActivity.this, "Email hoặc mật khẩu không đúng!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Username hoặc mật khẩu không đúng!", Toast.LENGTH_SHORT).show();
                 }
             }
 
