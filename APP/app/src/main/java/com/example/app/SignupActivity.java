@@ -106,6 +106,8 @@ public class SignupActivity extends AppCompatActivity {
                                 // Đọc lỗi từ errorBody()
                                 String errorBody = response.errorBody().toString();
                                 Log.e("API_ERROR", "Response error: " + errorBody);
+                                Log.e("API_ERROR", "Response Code: " + response.code());
+                                Log.e("API_ERROR", "Response Body: " + response.body());
                                 Toast.makeText(SignupActivity.this, errorBody, Toast.LENGTH_LONG).show();
                             } catch (Exception e) {
                                 Log.e("API_ERROR", "Error reading error body", e);
