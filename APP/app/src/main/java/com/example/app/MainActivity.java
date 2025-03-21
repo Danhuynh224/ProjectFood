@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
         GetCategory();
         GetProduct();
         // Ho Nhut Tan - 22110412
-        sharedPreferences = getSharedPreferences("loginDetails", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("LoginDetails", MODE_PRIVATE);
 
-        tvName.setText("Hi" + sharedPreferences.getString("username", ""));
+        tvName.setText("Hi, " + sharedPreferences.getString("username", ""));
     }
 
     private void AnhXa() {

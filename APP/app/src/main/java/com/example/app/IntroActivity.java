@@ -15,8 +15,8 @@ public class IntroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro);
-        Button btnStart = findViewById(R.id.btn_start);
 
+        Button btnStart = findViewById(R.id.btn_start);
         btnStart.setOnClickListener(v -> {
             Intent intent;
             PrefUser sharedPreferences = new PrefUser(this);
