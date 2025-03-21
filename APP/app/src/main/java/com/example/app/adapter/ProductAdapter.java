@@ -18,6 +18,7 @@ import com.example.app.R;
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder>{
+    //22110458 - Nguyễn Hữu Vinh
     private List<Product> productList;
     private Context context;
 
