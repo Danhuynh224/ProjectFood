@@ -100,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
                     rcCate.setLayoutManager(layoutManager);
                     rcCate.setAdapter(categoryAdapter);
                     categoryAdapter.notifyDataSetChanged();
+
+
                 } else {
                     int statusCode = response.code();
                 }
@@ -118,12 +120,13 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 if(response.isSuccessful()) {
                     productList = response.body();
-                    productAdapter = new ProductAdapter(MainActivity.this, productList);
+                    productAdapter = new ProductAdapter(MainActivity.this,productList);
                     rcProduct.setHasFixedSize(true);
                     RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 2);
                     rcProduct.setLayoutManager(layoutManager);
                     rcProduct.setAdapter(productAdapter);
                     productAdapter.notifyDataSetChanged();
+
                 } else {
                     int statusCode = response.code();
                 }
