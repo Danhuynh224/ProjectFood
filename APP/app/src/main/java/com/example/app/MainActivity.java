@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         GetCategory(); // Nguyễn Phan Minh Trí - 22110443
         GetProduct();
         // Ho Nhut Tan - 22110412
-        sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("loginDetails", MODE_PRIVATE);
 
         tvName.setText("Hi" + sharedPreferences.getString("username", ""));
     }
