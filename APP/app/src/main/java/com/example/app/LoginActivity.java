@@ -27,7 +27,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     private EditText usernameInput, passwordInput;
     SharedPreferences sharedPreferences;
-	private TextView tvForgotPassword;
+	private TextView tvForgotPassword, registerText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,15 @@ public class LoginActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.passwordInput);
         ImageButton loginButton = findViewById(R.id.arrow);
         tvForgotPassword = findViewById(R.id.forgetText);
+        registerText= findViewById(R.id.registerText);
+
+        registerText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(intent);
+            }
+        });
 
         String userName = getIntent().getStringExtra("NAME");
         String userPass = getIntent().getStringExtra("PASSWORD");

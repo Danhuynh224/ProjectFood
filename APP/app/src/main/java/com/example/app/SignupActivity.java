@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.app.API.AuthAPI;
 import com.example.app.API.RetrofitClient;
 import com.example.app.Model.ApiResponse;
+import com.example.app.Model.ErrorResponse;
 import com.example.app.Model.User;
 
 import retrofit2.Call;
@@ -103,9 +104,9 @@ public class SignupActivity extends AppCompatActivity {
                         } else {
                             try {
                                 // Đọc lỗi từ errorBody()
-                                String errorBody = response.errorBody().string();
+                                String errorBody = response.errorBody().toString();
                                 Log.e("API_ERROR", "Response error: " + errorBody);
-                                Toast.makeText(SignupActivity.this, "Invalid email and username", Toast.LENGTH_LONG).show();
+                                Toast.makeText(SignupActivity.this, errorBody, Toast.LENGTH_LONG).show();
                             } catch (Exception e) {
                                 Log.e("API_ERROR", "Error reading error body", e);
                             }
