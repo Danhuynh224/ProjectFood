@@ -23,17 +23,14 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+// Ho Nhut Tan - 22110412
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView rcCate;
     CategoryAdapter categoryAdapter;
     ServiceAPI apiService;
     List<Category> categoryList;
-
-
     SharedPreferences sharedPreferences;
-    String txtName;
     TextView tvName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +46,14 @@ public class MainActivity extends AppCompatActivity {
         AnhXa();
         GetCategory();
 
-        tvName = findViewById(R.id.tvName);
+        // Ho Nhut Tan - 22110412
         sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
 
         tvName.setText("Hi" + sharedPreferences.getString("name", ""));
     }
 
     private void AnhXa() {
+        tvName = findViewById(R.id.tvName);
         rcCate = findViewById(R.id.recyclerCategories);
     }
 
