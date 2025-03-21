@@ -199,11 +199,12 @@
                         android:layout_height="wrap_content"
                         android:text="Last Products"
                         android:textStyle="bold"/>
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerLastProducts"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:nestedScrollingEnabled="false"/>
+                        android:nestedScrollingEnabled="false" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -223,28 +224,31 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:backgroundTint="#f6f6f6"
-            app:fabCradleMargin="8dp"
-            app:fabCradleRoundedCornerRadius="50dp"
-            app:fabCradleVerticalOffset="6dp">
+            app:fabAlignmentMode="center"
+            app:fabCradleMargin="12dp"
+            app:fabCradleRoundedCornerRadius="60dp"
+            app:fabCradleVerticalOffset="8dp"
+            app:elevation="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp">
 
                 <LinearLayout
                     android:id="@+id/homeBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="8dp">
 
                     <ImageView
                         android:id="@+id/imvHome"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
                         app:srcCompat="@drawable/bottom_btn1" />
 
                     <TextView
@@ -252,7 +256,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Home"
-                        android:textAlignment="center"
+                        android:gravity="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -261,13 +265,14 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="8dp">
 
                     <ImageView
                         android:id="@+id/imvProfile"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
                         app:srcCompat="@drawable/bottom_btn2" />
 
                     <TextView
@@ -275,7 +280,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Profile"
-                        android:textAlignment="center"
+                        android:gravity="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -285,22 +290,21 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:orientation="vertical"
-                    android:visibility="visible">
+                    android:visibility="invisible"
+                    android:paddingTop="8dp">
 
                     <ImageView
                         android:id="@+id/imvCart"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
                         app:srcCompat="@drawable/bottom_btn5" />
 
                     <TextView
                         android:id="@+id/tvCart"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Home"
-                        android:textAlignment="center"
+                        android:text="Cart"
+                        android:gravity="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -309,14 +313,14 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="8dp">
 
                     <ImageView
                         android:id="@+id/imvSupport"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
                         app:srcCompat="@drawable/bottom_btn3" />
 
                     <TextView
@@ -324,7 +328,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Support"
-                        android:textAlignment="center"
+                        android:gravity="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -333,14 +337,14 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="8dp">
 
                     <ImageView
                         android:id="@+id/imvSettings"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
                         app:srcCompat="@drawable/bottom_btn4" />
 
                     <TextView
@@ -348,12 +352,29 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Settings"
-                        android:textAlignment="center"
+                        android:gravity="center"
                         android:textColor="#676767"
                         android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
+
         </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="CART"
+            android:src="@drawable/shopping_cart"
+            android:elevation="6dp"
+            app:maxImageSize="36dp"
+            app:tint="@color/white"
+            app:backgroundTint="#ff5e00"
+            android:layout_marginBottom="10dp"
+            app:layout_anchor="@id/app_bar"
+            app:layout_anchorGravity="center"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
