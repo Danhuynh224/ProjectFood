@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 //Huỳnh Việt Đan - 22110306
+=======
+>>>>>>> a9919c7f42d9d5ba1067beae7910aa5256e2e76f
 package com.example.api.utils;
 
 import jakarta.validation.ConstraintViolationException;

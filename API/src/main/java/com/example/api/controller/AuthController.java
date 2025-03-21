@@ -9,6 +9,7 @@ import com.example.api.request.ResetPassRequest;
 import com.example.api.service.AuthService;
 import com.example.api.service.OTPService;
 import com.example.api.utils.ErrorResponse;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class AuthController {
     @Autowired
     private OTPService otpService;
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody User user) {
+    public ResponseEntity<?> register(@Valid @RequestBody User user) {
         user = authService.registerUser(user);
         if (user == null) {
             ErrorResponse error = new ErrorResponse(HttpStatus.BAD_REQUEST.value(),
@@ -39,7 +40,7 @@ public class AuthController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody User user) {
+    public ResponseEntity<?> login(@Valid @RequestBody User user) {
         System.out.println(user.toString());
         User loginUser = authService.login(user);
 
@@ -53,7 +54,7 @@ public class AuthController {
         return new ResponseEntity<>(loginUser, HttpStatus.CREATED);
     }
     @PostMapping("/active")
-    public ResponseEntity<?> active(@RequestBody OTPRequest otpRequest) {
+    public ResponseEntity<?> active(@Valid @RequestBody OTPRequest otpRequest) {
         if(authService.activeUser(otpRequest))
         {
             Map<String, String> response = new HashMap<>();
@@ -67,7 +68,7 @@ public class AuthController {
     }
 
     @PostMapping("/forget")
-    public ResponseEntity<?> forget(@RequestBody ForgetRequest forgetRequest) {
+    public ResponseEntity<?> forget(@Valid @RequestBody ForgetRequest forgetRequest) {
         authService.forget(forgetRequest);
         Map<String, String> response = new HashMap<>();
         response.put("message", "Please check your email");
@@ -75,7 +76,7 @@ public class AuthController {
     }
 
     @PutMapping("reset")
-    public ResponseEntity<?> reset(@RequestBody ResetPassRequest resetPassRequest) {
+    public ResponseEntity<?> reset(@Valid @RequestBody ResetPassRequest resetPassRequest) {
         if(authService.resetPass(resetPassRequest)){
             Map<String, String> response = new HashMap<>();
             response.put("message", "New password has been reset");
