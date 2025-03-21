@@ -14,6 +14,6 @@ Giao diện trang quên mật khẩu:<br>
 Giao diện trang ký:<br>
 <img src="image-4.png"><br><br>
 
-Tài khoản có sẵn:
-tài khoản: dat
-mật khẩu: 123
+Tài khoản có sẵn: <br>
+tài khoản: dat <br>
+mật khẩu: 123456  <br>
