@@ -1,5 +1,6 @@
 package com.example.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -22,7 +23,7 @@ import com.example.app.Model.OTPRequest;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+//22110408 _ Nguyễn Hồng Sơn
 public class OtpActivity extends AppCompatActivity {
     TextView email;
     ImageButton active;
@@ -34,6 +35,8 @@ public class OtpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_otp);
 
         String userEmail = getIntent().getStringExtra("USER_EMAIL");
+        String userName = getIntent().getStringExtra("NAME");
+        String userPass = getIntent().getStringExtra("PASSWORD");
 
         email = findViewById(R.id.tv_email);
         active = findViewById(R.id.btn_active);
@@ -81,6 +84,10 @@ public class OtpActivity extends AppCompatActivity {
                     public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                         if (response.isSuccessful() && response.body() != null) {
                             Toast.makeText(OtpActivity.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(OtpActivity.this, LoginActivity.class);
+                            intent.putExtra("NAME", userName);
+                            intent.putExtra("PASSWORD",userPass);
+                            startActivity(intent);
                         } else {
                             try {
                                 // Đọc lỗi từ errorBody()

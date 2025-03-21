@@ -21,7 +21,7 @@ import com.example.app.Model.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+//22110408 _ Nguyễn Hồng Sơn
 public class SignupActivity extends AppCompatActivity {
     EditText email,name, password, confpass;
     ImageButton signup;
@@ -86,13 +86,15 @@ public class SignupActivity extends AppCompatActivity {
                             // Chuyển sang OTPActivity và truyền dữ liệu
                             Intent intent = new Intent(SignupActivity.this, OtpActivity.class);
                             intent.putExtra("USER_EMAIL", user.getEmail());
+                            intent.putExtra("NAME", user.getName());
+                            intent.putExtra("PASSWORD", user.getPassword());
                             startActivity(intent);
                         } else {
                             try {
                                 // Đọc lỗi từ errorBody()
                                 String errorBody = response.errorBody().string();
                                 Log.e("API_ERROR", "Response error: " + errorBody);
-                                Toast.makeText(SignupActivity.this, errorBody, Toast.LENGTH_LONG).show();
+                                Toast.makeText(SignupActivity.this, "Invalid email and username", Toast.LENGTH_LONG).show();
                             } catch (Exception e) {
                                 Log.e("API_ERROR", "Error reading error body", e);
                             }

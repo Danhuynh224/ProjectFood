@@ -4,9 +4,9 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/otp"
-    tools:context=".OTPActivity"
+    tools:context=".OtpActivity"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+<!--    22110408 _ Nguyễn Hồng Sơn-->
     <ImageView
         android:id="@+id/imageview"
         android:layout_width="match_parent"

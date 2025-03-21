@@ -17,6 +17,7 @@ import com.example.app.API.AuthAPI;
 import com.example.app.API.RetrofitClient;
 import com.example.app.Model.ApiResponse;
 import com.example.app.Model.User;
+import com.example.app.SharedPreferences.PrefUser;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,9 +25,9 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText usernameInput, passwordInput;
-    private TextView tvForgotPassword;
+    SharedPreferences sharedPreferences;
+	private TextView tvForgotPassword;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,11 @@ public class LoginActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.passwordInput);
         ImageButton loginButton = findViewById(R.id.arrow);
         tvForgotPassword = findViewById(R.id.forgetText);
+
+        String userName = getIntent().getStringExtra("NAME");
+        String userPass = getIntent().getStringExtra("PASSWORD");
+        usernameInput.setText(userName);
+        passwordInput.setText(userPass);
 
         // Xử lý sự kiện khi bấm nút đăng nhập
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         AuthAPI authAPI = RetrofitClient.getClient().create(AuthAPI.class);
 
         // Tạo user request
+        boolean active =true;
         User user = new User(username, password);
 
         // Gửi request đến API
@@ -76,18 +83,19 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
+                    SharedPreferences sharedPreferences = getSharedPreferences("LoginDetails", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("username", username);
                     editor.putString("password", password);
                     editor.commit();
                     Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
                     // Chuyển sang MainActivity
+                    saveLoginDetails(username, password);
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(LoginActivity.this, "Username hoặc mật khẩu không đúng!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Email hoặc mật khẩu không đúng!", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -96,5 +104,8 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Lỗi kết nối: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+    }
+    private void saveLoginDetails(String username, String password) {
+        new PrefUser(this).saveloginDetails(username, password);
     }
 }

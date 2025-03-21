@@ -10,19 +10,19 @@ public class PrefUser {
         this.context = context;
     }
 
-    public void saveloginDetails(String email, String password){
+    public void saveloginDetails(String user, String password){
         SharedPreferences sharedPreferences = context.getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("Email", email);
-        editor.putString("Password", password);
+        editor.putString("username", user);
+        editor.putString("password", password);
         editor.apply();
     }
 
     public boolean isUserLogedOut() {
         SharedPreferences sharedPreferences = context.getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
-        boolean isEmailEmpty = sharedPreferences.getString("Email", "").isEmpty();
-        boolean isPasswordEmpty = sharedPreferences.getString("Password", "").isEmpty();
-        return isEmailEmpty || isPasswordEmpty;
+        boolean isUsernameEmpty = sharedPreferences.getString("username", "").isEmpty();
+        boolean isPasswordEmpty = sharedPreferences.getString("password", "").isEmpty();
+        return isUsernameEmpty || isPasswordEmpty;
     }
 
 }
