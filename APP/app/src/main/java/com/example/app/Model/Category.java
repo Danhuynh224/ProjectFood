@@ -4,13 +4,13 @@ package com.example.app.Model;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-
+//Nguyễn Phan Minh Trí - 22110443
 public class Category implements Serializable {
     @SerializedName("categoryId")
     private int id;
-    @SerializedName("name")
-    private String name;
     @SerializedName("categoryName")
+    private String name;
+    @SerializedName("image")
     private String images;
 
     public int getId() {
