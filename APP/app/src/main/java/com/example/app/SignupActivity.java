@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -27,6 +28,7 @@ public class SignupActivity extends AppCompatActivity {
     ImageButton signup;
     RadioGroup genderGroup;
     RadioButton selectedGenderButton;
+    TextView tv_login;
     AuthAPI authAPI;
 
     @Override
@@ -40,6 +42,15 @@ public class SignupActivity extends AppCompatActivity {
         signup = findViewById(R.id.btn_signup);
         confpass = findViewById(R.id.tv_passConf);
         genderGroup = findViewById(R.id.genderGroup);
+        tv_login = findViewById(R.id.tv_login);
+
+        tv_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         signup.setOnClickListener(new View.OnClickListener() {
