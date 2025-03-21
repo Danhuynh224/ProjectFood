@@ -9,4 +9,5 @@ import java.util.List;
 //HuynhTuanKiet-22110358
 public interface CategoryRepository extends JpaRepository<Category, Long> {
     List<Category> findAll();
+    Category findByCategoryId(Long categoryId);
 }
