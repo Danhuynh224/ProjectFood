@@ -159,223 +159,228 @@
         </LinearLayout>
 
         <!-- Phần của 2 Recycler View       -->
-        <androidx.core.widget.NestedScrollView
+        <!-- Phần của 2 Recycler View       -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:fillViewport="true"
-            android:padding="12dp">
+            android:padding="12dp"
+            android:orientation="vertical">
 
+
+
+            <!-- Categories RecyclerView -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:fillViewport="true">
-
-                <!-- Categories RecyclerView -->
-                <LinearLayout
+                android:orientation="vertical">
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Categories"
-                        android:textStyle="bold"/>
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerCategories"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:nestedScrollingEnabled="false"/>
-                </LinearLayout>
-
-                <!-- Products RecyclerView -->
-                <LinearLayout
+                    android:text="Categories"
+                    android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerCategories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txt_NameCate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Products"
-                        android:textStyle="bold" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerLastProducts"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:nestedScrollingEnabled="false" />
-                </LinearLayout>
-
+                    android:nestedScrollingEnabled="false"/>
             </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-
-    </LinearLayout>
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/linear1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/app_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:backgroundTint="#f6f6f6"
-            app:fabAlignmentMode="center"
-            app:fabCradleMargin="12dp"
-            app:fabCradleRoundedCornerRadius="60dp"
-            app:fabCradleVerticalOffset="8dp"
-            app:elevation="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingHorizontal="8dp">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/homeBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
+                <TextView
+                    android:id="@+id/txt_nameCate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Products"
+                    android:textStyle="bold"/>
 
-                    <ImageView
-                        android:id="@+id/imvHome"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:srcCompat="@drawable/bottom_btn1" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerLastProducts"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:nestedScrollingEnabled="true" />
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/linear1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-                    <TextView
-                        android:id="@+id/tvHome"
+                    <com.google.android.material.bottomappbar.BottomAppBar
+                        android:id="@+id/app_bar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Home"
-                        android:gravity="center"
-                        android:textColor="#676767"
-                        android:textSize="12sp" />
-                </LinearLayout>
+                        android:layout_gravity="bottom"
+                        android:backgroundTint="#f6f6f6"
+                        app:fabAlignmentMode="center"
+                        app:fabCradleMargin="12dp"
+                        app:fabCradleRoundedCornerRadius="60dp"
+                        app:fabCradleVerticalOffset="8dp"
+                        app:elevation="8dp">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="8dp">
 
-                    <ImageView
-                        android:id="@+id/imvProfile"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:srcCompat="@drawable/bottom_btn2" />
+                            <LinearLayout
+                                android:id="@+id/homeBtn"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingTop="8dp">
 
-                    <TextView
-                        android:id="@+id/tvProfile"
-                        android:layout_width="match_parent"
+                                <ImageView
+                                    android:id="@+id/imvHome"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    app:srcCompat="@drawable/bottom_btn1" />
+
+                                <TextView
+                                    android:id="@+id/tvHome"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Home"
+                                    android:gravity="center"
+                                    android:textColor="#676767"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingTop="8dp">
+
+                                <ImageView
+                                    android:id="@+id/imvProfile"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    app:srcCompat="@drawable/bottom_btn2" />
+
+                                <TextView
+                                    android:id="@+id/tvProfile"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Profile"
+                                    android:gravity="center"
+                                    android:textColor="#676767"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:orientation="vertical"
+                                android:visibility="invisible"
+                                android:paddingTop="8dp">
+
+                                <ImageView
+                                    android:id="@+id/imvCart"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    app:srcCompat="@drawable/bottom_btn5" />
+
+                                <TextView
+                                    android:id="@+id/tvCart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Cart"
+                                    android:gravity="center"
+                                    android:textColor="#676767"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingTop="8dp">
+
+                                <ImageView
+                                    android:id="@+id/imvSupport"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    app:srcCompat="@drawable/bottom_btn3" />
+
+                                <TextView
+                                    android:id="@+id/tvSupport"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Support"
+                                    android:gravity="center"
+                                    android:textColor="#676767"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingTop="8dp">
+
+                                <ImageView
+                                    android:id="@+id/imvSettings"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    app:srcCompat="@drawable/bottom_btn4" />
+
+                                <TextView
+                                    android:id="@+id/tvSettings"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Settings"
+                                    android:gravity="center"
+                                    android:textColor="#676767"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </com.google.android.material.bottomappbar.BottomAppBar>
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnCart"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Profile"
-                        android:gravity="center"
-                        android:textColor="#676767"
-                        android:textSize="12sp" />
-                </LinearLayout>
+                        android:contentDescription="CART"
+                        android:src="@drawable/shopping_cart"
+                        android:elevation="6dp"
+                        app:maxImageSize="36dp"
+                        app:tint="@color/white"
+                        app:backgroundTint="#ff5e00"
+                        android:layout_marginBottom="10dp"
+                        app:layout_anchor="@id/app_bar"
+                        app:layout_anchorGravity="center"/>
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:orientation="vertical"
-                    android:visibility="invisible"
-                    android:paddingTop="8dp">
-
-                    <ImageView
-                        android:id="@+id/imvCart"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:srcCompat="@drawable/bottom_btn5" />
-
-                    <TextView
-                        android:id="@+id/tvCart"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Cart"
-                        android:gravity="center"
-                        android:textColor="#676767"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
-
-                    <ImageView
-                        android:id="@+id/imvSupport"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:srcCompat="@drawable/bottom_btn3" />
-
-                    <TextView
-                        android:id="@+id/tvSupport"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Support"
-                        android:gravity="center"
-                        android:textColor="#676767"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingTop="8dp">
-
-                    <ImageView
-                        android:id="@+id/imvSettings"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:srcCompat="@drawable/bottom_btn4" />
-
-                    <TextView
-                        android:id="@+id/tvSettings"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Settings"
-                        android:gravity="center"
-                        android:textColor="#676767"
-                        android:textSize="12sp" />
-                </LinearLayout>
             </LinearLayout>
 
-        </com.google.android.material.bottomappbar.BottomAppBar>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnCart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="CART"
-            android:src="@drawable/shopping_cart"
-            android:elevation="6dp"
-            app:maxImageSize="36dp"
-            app:tint="@color/white"
-            app:backgroundTint="#ff5e00"
-            android:layout_marginBottom="10dp"
-            app:layout_anchor="@id/app_bar"
-            app:layout_anchorGravity="center"/>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 
 

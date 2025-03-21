@@ -55,7 +55,7 @@ public class ProductController {
     public ResponseEntity<?> getProductsPaging(
             @PathVariable @Min(1) Long categoryId,
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "4") int size) {
+            @RequestParam(defaultValue = "2") int size) {
 
         Page<Product> productPage = productService.findProductsByCategoryAndPrice(categoryId,page, size);
 

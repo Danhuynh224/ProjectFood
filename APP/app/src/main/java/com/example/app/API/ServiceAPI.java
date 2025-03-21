@@ -3,6 +3,7 @@ package com.example.app.API;
 
 import com.example.app.Model.Category;
 import com.example.app.Model.Product;
+import com.example.app.Model.ResponseBodyPaging;
 
 import java.util.List;
 
@@ -16,6 +17,9 @@ public interface ServiceAPI {
     Call<List<Category>> getCategoriesAll();
     @GET("/api/product/last-products")
     Call<List<Product>> getLastProducts();
-    @GET("/api/product/get-products-by-category/{categoryId}") // Sửa lỗi API
-    Call<List<Product>> getProductByCategory(@Path("categoryId") Long categoryId); // Sửa từ @Query thành @Path
+    @GET("/api/product/get-products-by-category/{id}")
+    Call<ResponseBodyPaging> getProductByCategory(@Path("id") Long id,
+                                                  @Query("page") int page,
+                                                  @Query("size") int size);
+
 }
