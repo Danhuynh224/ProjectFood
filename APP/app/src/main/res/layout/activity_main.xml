@@ -56,13 +56,27 @@
                         android:textColor="@android:color/darker_gray"
                         android:textSize="14sp"/>
                 </LinearLayout>
-
                 <!-- Avatar -->
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_student"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/pro_trung" />
+                <ImageButton
+                    android:id="@+id/btn_logout"
+                    android:layout_width="33dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/logout"
+                    android:scaleType="fitCenter"
+                    android:padding="4dp"
+                    android:contentDescription="button logout"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:layout_marginLeft="8dp">
+
+
+                </ImageButton>
+
             </LinearLayout>
 
             <!-- Ô tìm kiếm -->
@@ -145,10 +159,11 @@
         </LinearLayout>
 
         <!-- Phần của 2 Recycler View       -->
-        <ScrollView
-            android:layout_weight="3"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
             android:padding="12dp">
 
             <LinearLayout
@@ -160,10 +175,8 @@
                 <!-- Categories RecyclerView -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -176,12 +189,10 @@
                         android:nestedScrollingEnabled="false"/>
                 </LinearLayout>
 
-
                 <!-- Products RecyclerView -->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <TextView
                         android:layout_width="match_parent"
@@ -196,7 +207,8 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
+
     </LinearLayout>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"

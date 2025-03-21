@@ -23,10 +23,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+// Vương Lập Quế  2210402
 public class LoginActivity extends AppCompatActivity {
     private EditText usernameInput, passwordInput;
     SharedPreferences sharedPreferences;
-	private TextView tvForgotPassword;
+	private TextView tvForgotPassword, registerText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,15 @@ public class LoginActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.passwordInput);
         ImageButton loginButton = findViewById(R.id.arrow);
         tvForgotPassword = findViewById(R.id.forgetText);
+        registerText= findViewById(R.id.registerText);
+
+        registerText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(intent);
+            }
+        });
 
         String userName = getIntent().getStringExtra("NAME");
         String userPass = getIntent().getStringExtra("PASSWORD");
@@ -52,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = passwordInput.getText().toString().trim();
 
                 if (username.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Vui lòng nhập email và mật khẩu!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Vui lòng nhập username và mật khẩu!", Toast.LENGTH_SHORT).show();
                 } else {
                     loginUser(username, password);
                 }
@@ -95,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(LoginActivity.this, "Email hoặc mật khẩu không đúng!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Username hoặc mật khẩu không đúng!", Toast.LENGTH_SHORT).show();
                 }
             }
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
+    <!--    Vương Lập Quế - 22110402-->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="413dp"
@@ -39,7 +39,7 @@
     <EditText
         android:id="@+id/emailInput"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="36dp"
         android:drawableStart="@drawable/email"
@@ -65,6 +65,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailInput"
         app:layout_constraintVertical_bias="0.049" />
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="69dp"
+        android:layout_height="73dp"
+        android:scaleX="-1"
+        android:src="@drawable/btn_arrow2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailInput"
+        app:layout_constraintVertical_bias="0.061" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,12 @@
 package com.example.app;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 // Ho Nhut Tan - 22110412
+// Nguyễn Phan Minh Trí - 22110443
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView rcCate;
@@ -50,12 +54,26 @@ public class MainActivity extends AppCompatActivity {
         });
 
         AnhXa();
-        GetCategory();
+        GetCategory(); // Nguyễn Phan Minh Trí - 22110443
         GetProduct();
         // Ho Nhut Tan - 22110412
         sharedPreferences = getSharedPreferences("LoginDetails", MODE_PRIVATE);
 
         tvName.setText("Hi " + sharedPreferences.getString("username", ""));
+        ImageButton btnLogout = findViewById(R.id.btn_logout);
+        btnLogout.setOnClickListener(view -> {
+            // Lấy đúng file SharedPreferences đang lưu login
+            SharedPreferences sharedPreferences = getSharedPreferences("LoginDetails", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.clear(); // Xóa toàn bộ dữ liệu login
+            editor.apply(); // Lưu thay đổi
+            Toast.makeText(this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
+            // Quay về IntroActivity
+            Intent intent = new Intent(this, IntroActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Clear hết backstack
+            startActivity(intent);
+            finish(); // Đóng Activity hiện tại
+        });
     }
 
     private void AnhXa() {
@@ -64,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
         rcProduct = findViewById(R.id.recyclerLastProducts);//Nguyễn Hữu Vinh 22110458
     }
 
-    private void GetCategory() {
+    private void GetCategory() { // Nguyễn Phan Minh Trí - 22110443
+
         apiService = RetrofitClient.getClient().create(ServiceAPI.class);
         apiService.getCategoriesAll().enqueue(new Callback<List<Category>>() {
             @Override
@@ -79,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
                     rcCate.setLayoutManager(layoutManager);
                     rcCate.setAdapter(categoryAdapter);
                     categoryAdapter.notifyDataSetChanged();
+
+
                 } else {
                     int statusCode = response.code();
                 }
@@ -103,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
                     rcProduct.setLayoutManager(layoutManager);
                     rcProduct.setAdapter(productAdapter);
                     productAdapter.notifyDataSetChanged();
+
                 } else {
                     int statusCode = response.code();
                 }

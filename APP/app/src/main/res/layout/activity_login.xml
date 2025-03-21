@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
+<!--    Vương Lập Quế - 22110402-->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="380dp"
+        android:layout_marginBottom="408dp"
         android:paddingLeft="20dp"
         android:text="Welcome\nBack"
         android:textColor="#EA6D35"
@@ -58,6 +58,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="12dp"
         android:autofillHints=""
+        android:inputType="textPassword"
         android:drawableStart="@drawable/password"
         android:drawablePadding="12dp"
         android:hint="Password"
