@@ -85,4 +85,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+    private void saveLoginDetails(String email, String password) {
+        new PrefUser(this).saveloginDetails(email, password);
+    }
+    private boolean isEmailValid(String email) {
+        return email.contains("@");
+    }
+
+    private boolean isPasswordValid(String password) {
+        return password.length() > 4;
+    }
 }
