@@ -1,9 +1,12 @@
 package com.example.app;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,6 +59,22 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("LoginDetails", MODE_PRIVATE);
 
         tvName.setText("Hi, " + sharedPreferences.getString("username", ""));
+
+        ImageButton btnLogout = findViewById(R.id.btn_logout);
+        btnLogout.setOnClickListener(view -> {
+            // Lấy đúng file SharedPreferences đang lưu login
+            SharedPreferences sharedPreferences = getSharedPreferences("LoginDetails", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.clear(); // Xóa toàn bộ dữ liệu login
+            editor.apply(); // Lưu thay đổi
+            Toast.makeText(this, "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
+            // Quay về IntroActivity
+            Intent intent = new Intent(this, IntroActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Clear hết backstack
+            startActivity(intent);
+            finish(); // Đóng Activity hiện tại
+        });
+
     }
 
     private void AnhXa() {
