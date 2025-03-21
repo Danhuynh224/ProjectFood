@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 
-public class Product {
+public class Product {//22110458 - Nguyễn Hữu Vinh
     @SerializedName("productId")
     private Long productId;
     @SerializedName("productName")
