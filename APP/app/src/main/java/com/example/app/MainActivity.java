@@ -30,6 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 // Ho Nhut Tan - 22110412
+// Nguyễn Phan Minh Trí - 22110443
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView rcCate;
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         AnhXa();
-        GetCategory();
+        GetCategory(); // Nguyễn Phan Minh Trí - 22110443
         GetProduct();
         // Ho Nhut Tan - 22110412
         sharedPreferences = getSharedPreferences("LoginDetails", MODE_PRIVATE);
@@ -83,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
         rcProduct = findViewById(R.id.recyclerLastProducts);//Nguyễn Hữu Vinh 22110458
     }
 
-    private void GetCategory() {
+    private void GetCategory() { // Nguyễn Phan Minh Trí - 22110443
+
         apiService = RetrofitClient.getClient().create(ServiceAPI.class);
         apiService.getCategoriesAll().enqueue(new Callback<List<Category>>() {
             @Override
