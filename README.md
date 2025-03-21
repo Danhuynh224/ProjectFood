@@ -6,7 +6,7 @@ Nhấn vào bắt đầu:<br>
 <img src="image-1.png"><br><br>
 
 + Nếu đã đăng nhập rồi, vào thẳng trang main<br>
-<img src="image-2.png"><br><br>
+<img src="image-5.png"><br><br>
 
 Giao diện trang quên mật khẩu:<br>
 <img src="image-3.png"><br><br>
