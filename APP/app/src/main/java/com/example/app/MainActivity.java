@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         // Ho Nhut Tan - 22110412
         sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
 
-        tvName.setText("Hi" + sharedPreferences.getString("name", ""));
+        tvName.setText("Hi" + sharedPreferences.getString("username", ""));
     }
 
     private void AnhXa() {
