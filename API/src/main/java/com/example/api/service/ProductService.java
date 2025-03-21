@@ -28,7 +28,7 @@ public class ProductService{
     public List<Product> findProductsByCategory(Long categoryId){
         Category category = categoryRepository.findByCategoryId(categoryId);
         if(category != null){
-            return productRepository.findAllByCategory(category);
+            return productRepository.findAllByCategoryOrderByPriceAsc(category);
         }
         return new ArrayList<Product>();
     }
