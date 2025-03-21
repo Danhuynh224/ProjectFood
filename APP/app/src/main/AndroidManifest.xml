@@ -17,6 +17,7 @@
         android:theme="@style/Theme.APP"
         tools:targetApi="31">
         <activity
+            
             android:name=".IntroActivity"
             android:exported="false">
 
@@ -32,8 +33,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".LoginActivity"/>
         <activity android:name=".MainActivity"/>
+=======
+        <activity android:name=".OtpActivity">
+        </activity>
+        <activity android:name=".SignupActivity">
+        </activity>
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".LoginActivity">
+
+        </activity>
+        <activity android:name=".ForgetPassActivity">
+
+        </activity>
+>>>>>>> remotes/origin/main
     </application>
 
 </manifest>
