@@ -5,6 +5,9 @@ public class User {
     private String name;
     private int gender;
 
+    public User(String email, String password) {
+    }
+
     public String getName() {
         return name;
     }
