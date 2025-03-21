@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-//HuynhTuanKiet-22110358
 @Service
 public class ProductService{
     @Autowired
