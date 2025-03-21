@@ -8,6 +8,7 @@ import com.example.api.entity.Product;
 import com.example.api.repository.CategoryRepository;
 import com.example.api.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -25,13 +26,14 @@ public class ProductService{
     public List<Product> findLastProducts() {
         return productRepository.findAllByOrderByCreateDateDesc();
     }
-    public List<Product> findProductsByCategory(Long categoryId){
+    public Page<Product> findProductsByCategoryAndPrice(Long categoryId ,int page, int size) {
         Category category = categoryRepository.findByCategoryId(categoryId);
         if(category != null){
-            return productRepository.findAllByCategory(category);
+            System.out.println("hello");
+            Pageable pageable = PageRequest.of(page, size, Sort.by("price").ascending());
+            return productRepository.findAllByCategory(category,pageable);
         }
-        return new ArrayList<Product>();
+        return new PageImpl<>(new ArrayList<Product>());
     }
-
 
 }
