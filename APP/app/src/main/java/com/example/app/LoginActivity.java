@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
         String userName = getIntent().getStringExtra("NAME");
         String userPass = getIntent().getStringExtra("PASSWORD");
-        emailInput.setText(userName);
+        usernameInput.setText(userName);
         passwordInput.setText(userPass);
 
         // Xử lý sự kiện khi bấm nút đăng nhập
