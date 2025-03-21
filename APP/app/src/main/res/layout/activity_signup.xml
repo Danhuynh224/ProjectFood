@@ -42,7 +42,7 @@
             android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="Username"
             android:textSize="23sp"
             android:inputType="text"
             android:drawableLeft="@drawable/name"
