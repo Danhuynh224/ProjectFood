@@ -86,6 +86,8 @@ public class SignupActivity extends AppCompatActivity {
                             // Chuyển sang OTPActivity và truyền dữ liệu
                             Intent intent = new Intent(SignupActivity.this, OtpActivity.class);
                             intent.putExtra("USER_EMAIL", user.getEmail());
+                            intent.putExtra("NAME", user.getName());
+                            intent.putExtra("PASSWORD", user.getPassword());
                             startActivity(intent);
                         } else {
                             try {

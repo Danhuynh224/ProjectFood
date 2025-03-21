@@ -21,6 +21,8 @@ public class Product implements Serializable {
     private String productName;
     private int quantity;
     private double price;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String images;
     private String description;
     private int soldQuantity;

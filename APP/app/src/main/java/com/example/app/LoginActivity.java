@@ -36,6 +36,11 @@ public class LoginActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.passwordInput);
         ImageButton loginButton = findViewById(R.id.arrow);
 
+        String userName = getIntent().getStringExtra("NAME");
+        String userPass = getIntent().getStringExtra("PASSWORD");
+        emailInput.setText(userName);
+        passwordInput.setText(userPass);
+
         // Xử lý sự kiện khi bấm nút đăng nhập
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
