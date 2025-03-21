@@ -41,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rcProduct;
     ProductAdapter productAdapter;
     SharedPreferences sharedPreferences;
+    TextView tvCategoryInfo;
     TextView tvName;
+    int quantity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
     private void AnhXa() {
         tvName = findViewById(R.id.tvName);
         rcCate = findViewById(R.id.recyclerCategories);
+        tvCategoryInfo = findViewById(R.id.txt_NameCate);
         rcProduct = findViewById(R.id.recyclerLastProducts);//Nguyễn Hữu Vinh 22110458
     }
 
@@ -96,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
                         public void onCategoryClick(Category category) {
                             // Khi bấm vào danh mục, gọi API lấy sản phẩm theo danh mục
                             GetProductByCategory(category.getId());
+                            String categoryInfo = category.getName() + ": " + productList.size();
+                            tvCategoryInfo.setText(categoryInfo);
                         }
                     });
 
@@ -148,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     productList.clear(); // Xóa danh sách cũ
+                    quantity = productList.size();
                     productList.addAll(response.body()); // Thêm sản phẩm mới
                     productAdapter.notifyDataSetChanged();
                 } else {
