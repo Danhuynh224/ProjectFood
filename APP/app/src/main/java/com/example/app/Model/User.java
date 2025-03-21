@@ -29,6 +29,9 @@ public class User {
         this.active = active;
     }
 
+    public User() {
+    }
+
     private String email;
     private String password;
     private boolean active = false;
